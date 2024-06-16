@@ -2,6 +2,8 @@ extends CanvasLayer
 @export var labelText:RichTextLabel
 @export var currentText:String = "Hello"
 @export var currentTimeToWaitUntilNextLine:float = 4
+@export var confirmButton:Node
+@export var afterString:String = "Anything Else?"
 var currentTimeWaiting = 0
 var currentLineQueue = 0;
 var maxLineQueue = 0;
@@ -13,15 +15,18 @@ var currentLines = []
 @export var button_4_lines:Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	confirmButton.visible = false;
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(labelText.visible_ratio<1):
+		confirmButton.visible= false;
 		labelText.visible_ratio +=0.1*currentTimeToWaitUntilNextLine*delta;
-		if(labelText.visible_ratio>0.98 && currentLineQueue>currentLines.size()-1):
-			currentText+= "\n (Continue...)";
+		if(labelText.visible_ratio>0.98):
+			if(currentLines.size()>1):
+				confirmButton.visible = true
 			labelText.visible_ratio = 1;
 		if(labelText.visible_ratio>0.25):
 			_check_for_next_line()
@@ -45,6 +50,8 @@ func _check_for_next_line():
 				labelText.visible_ratio = 0;
 				currentLineQueue+=1;
 				currentText = currentLines[currentLineQueue]
+			else:
+				_say_new_lines([afterString])
 
 func _on_book_button_pressed():
 	var newLines = button_1_lines

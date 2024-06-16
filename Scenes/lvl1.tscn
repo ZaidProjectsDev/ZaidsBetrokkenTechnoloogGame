@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg6jq722ce08h"]
+[gd_scene load_steps=12 format=3 uid="uid://bg6jq722ce08h"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_8tx0j"]
 [ext_resource type="Texture2D" uid="uid://50wbd0yx42hc" path="res://Sprites/256x256 circle_outline.png" id="1_cmc44"]
 [ext_resource type="Script" path="res://Scenes/PulseScale.gd" id="1_kbcrc"]
 [ext_resource type="Script" path="res://Scenes/MouseTracker.gd" id="2_0k53g"]
+[ext_resource type="Texture2D" uid="uid://dltaku0ffgdjy" path="res://Sprites/256x256 confirm.png" id="2_kdayx"]
+[ext_resource type="Script" path="res://Scenes/Blinker.gd" id="2_qmy6v"]
 [ext_resource type="Texture2D" uid="uid://cn1sjqx46m1rp" path="res://Sprites/256x256 circle.png" id="3_8rx6w"]
 
 [sub_resource type="Gradient" id="Gradient_q8neh"]
@@ -24,36 +26,61 @@ fill_to = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("labelText")]
-follow_viewport_enabled = true
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("labelText", "confirmButton")]
 script = ExtResource("1_8tx0j")
 labelText = NodePath("Control/RichTextLabel")
 currentText = "Hello, Welcome to my Void. What do you Want?"
+confirmButton = NodePath("ConfirmPulse/Confirm")
 button_1_lines = ["I chose the book Algorithims of Oppression because I thought it would be relevant to my study.", "I learned about how the American Healthcare system's technology was engineered to systematically put down minorities and others it's creators found undeserving of basic human rights.", "It depressed me greatly.", "Still, learning what I did from that book made me want to design software that respected it's user's agency.", "I mean, the level of prejudiced automated micro managing that happens on a daily basis is insane."]
 button_2_lines = ["I chose to be a Betrokken Technoloog because I wanted to learn about how ethics could be applied to software design.", "The school project was AI centric which was relevant to my future career as a game designer.", "My vision was that becoming this sort of designer would make me more aware of the human cost of software. Like, I'd learn how to keep things from going cartoonishly dark and evil. ", "This is because game design will make further use of AI for both development and player interaction.", "Personally, I hate the bandwagon and marketing buzzword AI has become.", "I also hate how it's been used to harm people via false information, scams and data collection.", "But every great tool has it's abusers and gold rush salesmen.", "So six months ago I was not all well versed in how I would be an ethical software developer. (Betrokken Technoloog). ", "Six months later, I think I've come a long way. Having to micromanage the social aspects of one's own designs is taxing but required if I want to make more human focussed software.", "I think a big point to this is to not think of your clients, users and players as numbers. ", "If you fail to do so, you might wind up with very bad PR and a huge fine because you broke several data privacy laws.", "I hope that the \"AI\" companies figure this out and don't assume they have free access to people's lives."]
 button_3_lines = ["What makes me different, you ask?", "I'm very cynical. I will ride along and try to make things work despite not having any faith in it at all.", "Does this make me special? It depends. Many people write software they aren't jazzed with. ", "I just want to make action adventure games calling to the \"good old\" PlayStation 2 days when things seemed simpler to me.", "I've tried a bunch and it never went anywhere. But, I'm not dead yet so it's not impossible. I just get older and less creative.", "Sorry, I'm rambling. I guess being an Ethical Technologist who just wants to make PS2 games is somewhat special.", "For my future self, I wish he'd be a lot less cynical. It's hard to WANT to come up with new ideas when you're constantly feeling done with everything."]
+
+[node name="ConfirmPulse" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.19
+anchor_right = 0.5
+anchor_bottom = 0.19
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("1_kbcrc")
+speed = 2.0
+
+[node name="Confirm" type="TextureRect" parent="CanvasLayer/ConfirmPulse"]
+z_index = 655
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_kdayx")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 z_index = 200
 custom_minimum_size = Vector2(320, 128)
 anchors_preset = -1
-offset_left = 214.0
-offset_top = 17.0
-offset_right = 660.0
-offset_bottom = 197.0
+offset_left = 235.0
+offset_top = -226.0
+offset_right = 681.0
+offset_bottom = 198.0
 rotation = 0.0872665
 texture = SubResource("GradientTexture2D_i6fv6")
+script = ExtResource("2_qmy6v")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 z_index = 200
 custom_minimum_size = Vector2(320, 128)
 anchors_preset = -1
-offset_left = 636.0
-offset_top = 55.0
-offset_right = 1082.0
-offset_bottom = 235.0
+offset_left = 615.0
+offset_top = -185.0
+offset_right = 1061.0
+offset_bottom = 236.0
 rotation = -0.0872665
 texture = SubResource("GradientTexture2D_i6fv6")
+script = ExtResource("2_qmy6v")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -62,6 +89,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 z_index = -4096
@@ -181,6 +210,7 @@ texture = ExtResource("1_cmc44")
 script = ExtResource("2_0k53g")
 pupil = NodePath("Sprite2D")
 radius = 50.0
+tracking_offset = Vector2(-100, 20)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Eyeball_L"]
@@ -207,6 +237,7 @@ texture = ExtResource("1_cmc44")
 script = ExtResource("2_0k53g")
 pupil = NodePath("Sprite2D")
 radius = 50.0
+tracking_offset = Vector2(100, 20)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Eyeball_R"]
