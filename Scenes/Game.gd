@@ -56,3 +56,9 @@ func _on_six_months_button_pressed():
 	var newLines = button_2_lines
 	_say_new_lines(newLines)
 	pass # Replace with function body.
+
+
+func _on_special_button_pressed():
+	var newLines = button_3_lines
+	_say_new_lines(newLines)
+	pass # Replace with function body.

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ZaidsPath"
 config/description="A small web game for my Betrokken Technoloog assignment."
-run/main_scene="res://Scenes/root.tscn"
+run/main_scene="res://Scenes/lvl1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

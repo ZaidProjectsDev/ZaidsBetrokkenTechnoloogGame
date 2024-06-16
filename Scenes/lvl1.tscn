@@ -28,7 +28,10 @@ fill_to = Vector2(0, 1)
 follow_viewport_enabled = true
 script = ExtResource("1_8tx0j")
 labelText = NodePath("Control/RichTextLabel")
-button_2_lines = ["Six months ago, I was a bird.", "Chirp Chirp"]
+currentText = "Hello, Welcome to my Void. What do you Want?"
+button_1_lines = ["I chose the book Algorithims of Oppression because I thought it would be relevant to my study.", "I learned about how the American Healthcare system's technology was engineered to systematically put down minorities and others it's creators found undeserving of basic human rights.", "It depressed me greatly.", "Still, learning what I did from that book made me want to design software that respected it's user's agency.", "I mean, the level of prejudiced automated micro managing that happens on a daily basis is insane."]
+button_2_lines = ["I chose to be a Betrokken Technoloog because I wanted to learn about how ethics could be applied to software design.", "The school project was AI centric which was relevant to my future career as a game designer.", "My vision was that becoming this sort of designer would make me more aware of the human cost of software. Like, I'd learn how to keep things from going cartoonishly dark and evil. ", "This is because game design will make further use of AI for both development and player interaction.", "Personally, I hate the bandwagon and marketing buzzword AI has become.", "I also hate how it's been used to harm people via false information, scams and data collection.", "But every great tool has it's abusers and gold rush salesmen.", "So six months ago I was not all well versed in how I would be an ethical software developer. (Betrokken Technoloog). ", "Six months later, I think I've come a long way. Having to micromanage the social aspects of one's own designs is taxing but required if I want to make more human focussed software.", "I think a big point to this is to not think of your clients, users and players as numbers. ", "If you fail to do so, you might wind up with very bad PR and a huge fine because you broke several data privacy laws.", "I hope that the \"AI\" companies figure this out and don't assume they have free access to people's lives."]
+button_3_lines = ["What makes me different, you ask?", "I'm very cynical. I will ride along and try to make things work despite not having any faith in it at all.", "Does this make me special? It depends. Many people write software they aren't jazzed with. ", "I just want to make action adventure games calling to the \"good old\" PlayStation 2 days when things seemed simpler to me.", "I've tried a bunch and it never went anywhere. But, I'm not dead yet so it's not impossible. I just get older and less creative.", "Sorry, I'm rambling. I guess being an Ethical Technologist who just wants to make PS2 games is somewhat special.", "For my future self, I wish he'd be a lot less cynical. It's hard to WANT to come up with new ideas when you're constantly feeling done with everything."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 z_index = 200
@@ -59,20 +62,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -31.0
-offset_right = 22.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Research and Development (5)"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 z_index = -4096
@@ -115,10 +104,10 @@ text = "What book did you read?"
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control"]
 anchors_preset = 0
-offset_left = 488.0
-offset_top = 568.0
-offset_right = 528.0
-offset_bottom = 608.0
+offset_left = 625.0
+offset_top = 592.0
+offset_right = 665.0
+offset_bottom = 632.0
 rotation = -0.00349066
 script = ExtResource("1_kbcrc")
 min_scale = 0.95
@@ -139,21 +128,21 @@ offset_right = 128.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "How was the last six months?"
+text = "Why did you pick Betrokken Technoloog? (Ethical Technologist)"
 
 [node name="Control3" type="Control" parent="CanvasLayer/Control"]
 anchors_preset = 0
-offset_left = 777.0
-offset_top = 568.0
-offset_right = 817.0
-offset_bottom = 608.0
-rotation = -0.0296706
+offset_left = 1033.0
+offset_top = 562.0
+offset_right = 1074.0
+offset_bottom = 600.0
+rotation = -0.0663225
 script = ExtResource("1_kbcrc")
 min_scale = 0.95
 max_scale = 1.125
 speed = 0.05
 
-[node name="BookButton" type="Button" parent="CanvasLayer/Control/Control3"]
+[node name="SpecialButton" type="Button" parent="CanvasLayer/Control/Control3"]
 custom_minimum_size = Vector2(256, 96)
 layout_mode = 1
 anchors_preset = 8
@@ -186,6 +175,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Hello. Welcome to my void. What do you want?"
 
 [node name="Eyeball_L" type="Sprite2D" parent="CanvasLayer" node_paths=PackedStringArray("pupil")]
+self_modulate = Color(0.796078, 0.796078, 0.796078, 1)
 position = Vector2(454, 258)
 texture = ExtResource("1_cmc44")
 script = ExtResource("2_0k53g")
@@ -194,6 +184,7 @@ radius = 50.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Eyeball_L"]
+modulate = Color(1, 1, 1, 0.807843)
 z_index = 10
 position = Vector2(40, -25)
 scale = Vector2(0.25, 0.25)
@@ -210,6 +201,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_8rx6w")
 
 [node name="Eyeball_R" type="Sprite2D" parent="CanvasLayer" node_paths=PackedStringArray("pupil")]
+self_modulate = Color(0.796078, 0.796078, 0.796078, 1)
 position = Vector2(854, 258)
 texture = ExtResource("1_cmc44")
 script = ExtResource("2_0k53g")
@@ -218,6 +210,7 @@ radius = 50.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Eyeball_R"]
+modulate = Color(1, 1, 1, 0.807843)
 z_index = 10
 position = Vector2(40, -25)
 scale = Vector2(0.25, 0.25)
@@ -235,3 +228,4 @@ texture = ExtResource("3_8rx6w")
 
 [connection signal="pressed" from="CanvasLayer/Control/Control/BookButton" to="CanvasLayer" method="_on_book_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Control2/SixMonthsButton" to="CanvasLayer" method="_on_six_months_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control3/SpecialButton" to="CanvasLayer" method="_on_special_button_pressed"]
