@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6xafkitjp3h4"]
+
+[ext_resource type="Script" path="res://Scenes/mainmenu.gd" id="1_wmh64"]
+[ext_resource type="PackedScene" uid="uid://bg6jq722ce08h" path="res://Scenes/lvl1.tscn" id="2_xjxw5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmh64")
+startScene = ExtResource("2_xjxw5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Zaid's Path"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.745
+anchor_right = 0.5
+anchor_bottom = 0.745
+offset_left = -128.0
+offset_top = -96.0
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+text = "Start Game"
+
+[node name="Inspirations" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+text = "Inspirations"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+text = "Options"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
