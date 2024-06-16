@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="BetrokkenGame"
+config/name="ZaidsPath"
+config/description="A small web game for my Betrokken Technoloog assignment."
 run/main_scene="res://Scenes/root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
